@@ -3,3 +3,79 @@
     padding: 0%;
     box-sizing: border-box;
 }
+
+
+
+body {
+    background-color: rgb(192, 184, 249);
+}
+
+header {
+    background-color: rgb(124, 106, 240);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select {
+    margin-left: 200px;
+}
+
+body.tema-escuro {
+    background-color: rgba(18, 47, 106, 0.947);
+
+}
+
+header.tema-escuro {
+    background-color: rgba(3, 2, 59, 0.834);
+}
+
+#fundo.tema-escuro {
+    background-color: rgba(73, 108, 214, 0.714);
+
+}
+
+#emailteste,
+#logout {
+    border: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#logout {
+    font-weight: bolder;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 100%;
+}
+
+#açaousuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#mudarTema {
+    margin-left: 50px;
+    margin-right: 20px;
+}
+
+
+
+
+#container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+#fundo {
+
+    width: 99%;
+    height: 86vh;
+    background-color: rgb(145, 133, 240);
+    border-radius: 2vh;
+
+}

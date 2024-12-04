@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,12 +10,18 @@ body {
     display: flex;
 }
 
-body { /* Adição de cor no body*/
-    background: linear-gradient(red 35%, blue);
+body {
+    /* Adição de cor no body*/
+    background: linear-gradient(gray 35%, black);
 }
 
-
 #login {
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#login,
+#form {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -23,12 +29,22 @@ body { /* Adição de cor no body*/
     gap: 20px;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: gray;
+    padding: 7px;
+}
+
+input,
+#bottao {
+    border: 1px solid black;
+}
+
+#email {
+    padding: 2px;
 }
 
 #bottao {
     color: white;
-    background-color:rgba(0, 0, 0, 0.144);
-    border-color: rgba(240, 248, 255, 0);
+    background-color: rgba(0, 0, 0, 0.144);
 }
 
 #email {

@@ -34,3 +34,18 @@ mudarTema.addEventListener('click', () => {
     }
 
 });  
+
+
+async function chamarApi(){
+    const request = await fetch ('https://personal-ga2xwx9j.outsystemscloud.com/TaskBoard_CS/rest/TaskBoard/Board?BoardId=194')
+
+    if(request.status === 200) {
+        const data = await request.json();
+        const nome = document.querySelector('#api-response');
+        nome.innerHTML = data.Name;
+    } else {
+        alert("Erro")
+    }
+}
+
+chamarApi();

@@ -91,22 +91,50 @@ function populateColumns(columns) {
         columnItem.appendChild(columnBody);
         boardLayout.appendChild(columnItem);
 
-        // Busca tarefas da coluna (simulado aqui como vazio)
-        fetchTasksByColumn(column.Id).then((tasks) => {
-            addTasksToColumn(column.Id, tasks);
+        // Busca as tarefas da coluna e as adiciona ao corpo correspondente
+        fetchTasksByColumn(column.Id).then((res) => {
+            addTasksToColumn(column.Id, res);
         });
     });
 }
 
-// Simula tarefas (por enquanto, vazio)
-async function fetchTasksByColumn(columnId) {
-    return [];
-}
-
-// Simula adição de tarefas (a ser implementado)
-function addTasksToColumn(columnId, tasks) {
-    console.log(`Tarefas para a coluna ${columnId}:`, tasks);
-}
 
 // Inicia o carregamento dos boards
 loadBoards();
+
+
+// ================================ TASKS =====================================
+
+
+// Função para buscar as tarefas de uma coluna específica
+function fetchTasksByColumn(columnId) {
+    const endpoint = `${API_BASE_URL}/TasksByColumnId?ColumnId=${columnId}`;
+    return fetch(endpoint)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`Erro ao buscar tasks para ColumnId ${columnId}: ${response.status}`);
+            }
+            return response.json(); // Converte a resposta JSON para objeto
+        })
+        .catch((error) => {
+            console.error(error); // Loga erros no console
+            return []; // Retorna uma lista vazia em caso de erro
+        });
+}
+
+
+
+// Função para adicionar as tarefas ao corpo de uma coluna
+function addTasksToColumn(columnId, tasks) {
+    const columnBody = document.getElementById(`tasks-${columnId}`); // Seleciona o corpo da coluna pelo ID
+
+    tasks.forEach((task) => {
+        const taskItem = document.createElement("div"); // Cria um elemento para a tarefa
+        taskItem.className = "task-item";
+        taskItem.innerHTML = `
+            <h6>${task.Title || "Sem título"}</h6> <!-- Exibe o título da tarefa -->
+            <p>${task.Description || "Sem descrição"}</p> <!-- Exibe a descrição da tarefa -->
+        `;
+        columnBody.appendChild(taskItem); // Adiciona a tarefa ao corpo da coluna
+    });
+}

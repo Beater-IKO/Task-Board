@@ -109,3 +109,31 @@ header.tema-escuro {
     align-items: center;
     justify-content: flex-start; /* Tarefas alinhadas no topo */
 }
+
+.task-item {
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 15px; 
+    padding: 15px; 
+   
+
+.task-item h6 {
+    font-size: 16px; 
+    font-weight: bold; 
+    color: #333; 
+    margin-bottom: 8px; 
+}
+
+.task-item p {
+    font-size: 14px; 
+    color: #666; 
+    line-height: 1.5; 
+}
+
+/* Efeito ao passar o mouse */
+.task-item:hover {
+    transform: scale(1.03); 
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); 
+}

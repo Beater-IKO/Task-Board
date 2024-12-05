@@ -79,14 +79,6 @@ header.tema-escuro {
 
 }
 
-#coluna{
-    background-color: white;
-    width: 200px;
-    height: 200px;
-    display: flex;
-
-
-}
 
 #boardslist{
     width: 100px;
@@ -96,4 +88,24 @@ header.tema-escuro {
     justify-content: center;
     align-items: center;
     margin-left: 200px;
+}
+ 
+#boardLayout {
+    display: flex;
+    gap: 20px; /* Espaçamento entre as colunas */
+    padding: 20px;
+    overflow-x: auto; /* Permite rolagem horizontal se necessário */
+    align-items: flex-start; /* Alinha as colunas no topo */
+}
+
+.column-item {
+    background-color: white;
+    width: 200px;
+    height: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* Garantir que os conteúdos internos fiquem em coluna */
+    align-items: center;
+    justify-content: flex-start; /* Tarefas alinhadas no topo */
 }

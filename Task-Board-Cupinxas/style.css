@@ -24,6 +24,20 @@ body.tema-escuro {
 
 }
 
+body.tema-escuro .task-item {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+body.tema-escuro .task-item h6 {
+    color: #ddd;
+}
+
+body.tema-escuro .task-item p {
+    color: #bbb;
+}
+
 header.tema-escuro {
     background-color: rgba(3, 2, 59, 0.834);
 }
@@ -117,6 +131,7 @@ header.tema-escuro {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
     margin-bottom: 15px; 
     padding: 15px; 
+}
    
 
 .task-item h6 {

@@ -1,48 +1,49 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trello do Cupinxas</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello do Cupinxas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <header>
+<body>
+    <header>
 
-            <select name="select" id="boardslist">
-                
-            </select>
+        <select name="select" id="">
+            <option value="a">Board Kanban</option>
+            <option value="b">b</option>
+            <option value="c">c </option>
+        </select>
 
-            <div id="açaousuario">
-                <p id="emailteste">jorge23cm@gmail.com |</p>
-
-
-                <a href="Tela-Login/Tela-Login.html"><button id="logout">Logout</button></a>
-
-
-                <button id="mudarTema">Alterar tema</button>
-
-            </div>
+        <div id="açaousuario">
+            <p id="usuario">|</p>
 
 
+            <a href="/Task-Board-Cupinxas/Tela-Login/Tela-Login.html"><button id="logout">Logout</button></a>
 
 
-        </header>
+            <button id="mudarTema">Alterar tema</button>
 
-        
-
-        <div id="container">
-            
-            <div id="fundo">
-                
-                <div id="boardLayout"></div> <!-- Adicionado contêiner para as colunas -->
-            
-            </div>
         </div>
-        <script src="script.js"></script>
-    </body>
 
 
-    </html>
+
+
+    </header>
+
+    <div id="container">
+        <div id="fundo"></div>
+    </div>
+
+    <div id="api-response">
+
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="tema.js"></script>
+</body>
+
+
+</html>

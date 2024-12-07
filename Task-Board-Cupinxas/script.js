@@ -1,34 +1,7 @@
-const mudarTema = document.getElementById("mudarTema");
 const boardsList = document.getElementById("boardslist");
 const boardLayout = document.getElementById("boardLayout");
 
 const API_BASE_URL = "https://personal-ga2xwx9j.outsystemscloud.com/TaskBoard_CS/rest/TaskBoard";
-
-// Configuração inicial do tema
-const temaAtual = localStorage.getItem("tema");
-if (temaAtual === "escuro") {
-    document.body.classList.add("tema-escuro");
-    document.querySelector("header").classList.add("tema-escuro");
-    document.querySelector("#fundo").classList.add("tema-escuro");
-    mudarTema.textContent = "modo claro";
-} else {
-    mudarTema.textContent = "modo escuro";
-}
-
-// Alternar tema
-mudarTema.addEventListener("click", () => {
-    document.body.classList.toggle("tema-escuro");
-    document.querySelector("header").classList.toggle("tema-escuro");
-    document.querySelector("#fundo").classList.toggle("tema-escuro");
-
-    if (document.body.classList.contains("tema-escuro")) {
-        localStorage.setItem("tema", "escuro");
-        mudarTema.textContent = "modo claro";
-    } else {
-        localStorage.setItem("tema", "claro");
-        mudarTema.textContent = "modo escuro";
-    }
-});
 
 // Função para carregar os boards
 async function loadBoards() {

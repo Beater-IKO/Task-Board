@@ -94,7 +94,7 @@ header.tema-escuro {
 }
 
 
-#boardslist{
+#boardslist {
     width: 100px;
     height: 40px;
     border-radius: 7px;
@@ -103,13 +103,16 @@ header.tema-escuro {
     align-items: center;
     margin-left: 200px;
 }
- 
+
 #boardLayout {
     display: flex;
-    gap: 20px; /* Espaçamento entre as colunas */
+    gap: 20px;
+    /* Espaçamento entre as colunas */
     padding: 20px;
-    overflow-x: auto; /* Permite rolagem horizontal se necessário */
-    align-items: flex-start; /* Alinha as colunas no topo */
+    overflow-x: auto;
+    /* Permite rolagem horizontal se necessário */
+    align-items: flex-start;
+    /* Alinha as colunas no topo */
 }
 
 .column-item {
@@ -119,36 +122,102 @@ header.tema-escuro {
     padding: 10px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column; /* Garantir que os conteúdos internos fiquem em coluna */
+    flex-direction: column;
+    /* Garantir que os conteúdos internos fiquem em coluna */
     align-items: center;
-    justify-content: flex-start; /* Tarefas alinhadas no topo */
+    justify-content: flex-start;
+    /* Tarefas alinhadas no topo */
 }
 
 .task-item {
-    background-color: #ffffff; 
-    border: 1px solid #ddd; 
-    border-radius: 10px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 15px; 
-    padding: 15px; 
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 15px;
 }
-   
+
 
 .task-item h6 {
-    font-size: 16px; 
-    font-weight: bold; 
-    color: #333; 
-    margin-bottom: 8px; 
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
 }
 
 .task-item p {
-    font-size: 14px; 
-    color: #666; 
-    line-height: 1.5; 
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
 }
 
 /* Efeito ao passar o mouse */
 .task-item:hover {
-    transform: scale(1.03); 
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); 
+    transform: scale(1.03);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para o botão de criar nova coluna */
+.botao-criar-coluna {
+    background-color: #ffffff;
+    /* Cor de fundo verde */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    height: 5%;
+    margin-right: auto;
+
+
+}
+
+.column-title-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.task-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.add-task-button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.add-task-button:hover {
+    background-color: #45a049;
+}
+
+.delete-column-button {
+    padding: 8px 12px;
+    background-color: #f44336;
+    /* Cor de fundo vermelho */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delete-column-button:hover {
+    background-color: #d32f2f;
+    /* Cor mais escura ao passar o mouse */
 }

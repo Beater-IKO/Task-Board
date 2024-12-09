@@ -1,48 +1,51 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trello do Cupinxas</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello do Cupinxas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <header>
+<body>
+    <header>
 
-            <select name="select" id="boardslist">
-                
-            </select>
+        <select name="select" id="boardslist">
 
-            <div id="açaousuario">
-                <p id="usuario"></p>
+        </select>
 
-
-                <a href="Tela-Login/Tela-Login.html"><button id="logout">Logout</button></a>
+        <div id="açaousuario">
+            <p id="usuario"></p>
 
 
-                <button id="mudarTema">Alterar tema</button>
-
-            </div>
+            <a href="Tela-Login/Tela-Login.html"><button id="logout">Logout</button></a>
 
 
+            <button id="mudarTema">Alterar tema</button>
 
-
-        </header>
-
-        
-
-        <div id="container">
-            
-            <div id="fundo">
-                
-                <div id="boardLayout"></div> <!-- Adicionado contêiner para as colunas -->
-            </div>
         </div>
-        <script src="script.js"></script>
-        <script type="module" src="tema.js"></script>
-    </body>
 
 
-    </html>
+
+
+    </header>
+
+
+
+    <div id="container">
+
+        <div id="fundo">
+
+            <button id="criarColuna" class="botao-criar-coluna">Criar Nova Coluna</button>
+
+            <div id="boardLayout"></div> <!-- Adicionado contêiner para as colunas -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="tema.js"></script>
+    <script src="scriptcoluna.js"></script>
+</body>
+
+
+</html>

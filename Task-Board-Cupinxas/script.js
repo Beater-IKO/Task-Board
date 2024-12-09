@@ -113,3 +113,53 @@ function addTasksToColumn(columnId, tasks) {
     });
 }
 
+
+
+/*
+
+
+document.getElementById("criarColuna").addEventListener("click", () => {
+    const newColumn = createNewColumn();
+    boardLayout.appendChild(newColumn); // Adiciona a nova coluna ao layout
+});
+
+// Função para criar uma nova coluna
+function createNewColumn() {
+    // Criação de um artigo para a nova coluna
+    const columnItem = document.createElement("article");
+    columnItem.className = "column-item";
+
+    // Criação do cabeçalho da coluna
+    const columnHeader = document.createElement("header");
+    columnHeader.className = "column-header";
+
+    // Campo de input para o título da nova coluna
+    const titleInput = document.createElement("input");
+    titleInput.type = "text";
+    titleInput.placeholder = "Digite o título da coluna...";
+    titleInput.className = "column-title-input"; // Estiliza o input
+
+    // Adiciona o input ao cabeçalho
+    columnHeader.appendChild(titleInput);
+
+    // Criação do corpo da coluna (onde as tarefas serão colocadas)
+    const columnBody = document.createElement("div");
+    columnBody.className = "column-body";
+    columnBody.id = `tasks-new`; // ID para as tarefas da nova coluna
+
+    // Adiciona o cabeçalho e o corpo ao item da coluna
+    columnItem.appendChild(columnHeader);
+    columnItem.appendChild(columnBody);
+
+    // Evento para salvar o título quando o campo de input perde o foco
+    titleInput.addEventListener("blur", () => {
+        if (titleInput.value.trim()) {
+            columnHeader.innerHTML = `<h5>${titleInput.value.trim()}</h5>`;
+        } else {
+            columnHeader.innerHTML = `<h5>Nova Coluna</h5>`; // Título padrão
+        }
+    });
+
+    return columnItem;
+}
+*/

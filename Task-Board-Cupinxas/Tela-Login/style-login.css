@@ -15,13 +15,12 @@ body {
     background: linear-gradient(gray 35%, black);
 }
 
-#login {
+#login-form {
     border: 2px solid black;
     border-radius: 15px;
 }
 
-#login,
-#form {
+#login-form {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -34,7 +33,7 @@ body {
 }
 
 input,
-#bottao {
+#buttao {
     border: 1px solid black;
 }
 

@@ -1,4 +1,4 @@
-import { API_URL } from "../TRELLO/config/apiConfig.js";
+import { API_URL } from "../Task-Board-Cupinxas/config/apiConfig.js";
 
 var email = localStorage.getItem("Email");
 const usuario = document.querySelector("#usuario");
@@ -69,7 +69,7 @@ async function EnviarParaApi(themeId) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        DefaultThemeId: themeId, 
+        ThemeId: themeId, 
       }),
     });
 

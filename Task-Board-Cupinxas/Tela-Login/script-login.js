@@ -35,7 +35,7 @@ async function buscarEmail(email) {
 
  if (email == data.Email) {
     alert("Email encontrado! Logando...");
-    window.location.href = "/TRELLO/Tela-Principal.html";
+    window.location.href = "/Task-Board-Cupinxas/Tela-Principal.html";
   } else {
     window.location.reload();
   }

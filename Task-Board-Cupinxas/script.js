@@ -5,6 +5,7 @@ const API_BASE_URL = "https://personal-ga2xwx9j.outsystemscloud.com/TaskBoard_CS
 
 // Função para carregar os boards
 async function loadBoards() {
+    
     try {
         const response = await fetch(`${API_BASE_URL}/Boards`);
         if (!response.ok) throw new Error("Erro ao carregar boards");
@@ -111,3 +112,4 @@ function addTasksToColumn(columnId, tasks) {
         columnBody.appendChild(taskItem); // Adiciona a tarefa ao corpo da coluna
     });
 }
+

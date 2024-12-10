@@ -1,92 +1,124 @@
+import { API_URL } from "../Task-Board-Cupinxas/config/apiConfig.js";
+
+var boardId = localStorage.getItem("boardId");
+
 document.getElementById("criarColuna").addEventListener("click", () => {
-    const newColumn = createNewColumn();
-    boardLayout.appendChild(newColumn); // Adiciona a nova coluna ao layout
+  const newColumn = createNewColumn();
+  boardLayout.appendChild(newColumn); // Adiciona a nova coluna ao layout
 });
 
 // Função para criar uma nova coluna
 function createNewColumn() {
-    const columnItem = document.createElement("article");
-    columnItem.className = "column-item";
+  const columnItem = document.createElement("article");
+  columnItem.className = "column-item";
 
-    // Criação do cabeçalho da coluna
-    const columnHeader = document.createElement("header");
-    columnHeader.className = "column-header";
+  // Criação do cabeçalho da coluna
+  const columnHeader = document.createElement("header");
+  columnHeader.className = "column-header";
 
-    // Campo de input para o título da nova coluna
-    const titleInput = document.createElement("input");
-    titleInput.type = "text";
-    titleInput.placeholder = "Digite o título da coluna...";
-    titleInput.className = "column-title-input"; // Estiliza o input
+  // Campo de input para o título da nova coluna
+  const titleInput = document.createElement("input");
+  titleInput.type = "text";
+  titleInput.placeholder = "Digite o título da coluna...";
+  titleInput.className = "column-title-input"; // Estiliza o input
 
-    // Adiciona o input ao cabeçalho
-    columnHeader.appendChild(titleInput);
+  EnviarParaApi(titleInput);
 
-    // Criação do corpo da coluna (onde as tarefas serão colocadas)
-    const columnBody = document.createElement("div");
-    columnBody.className = "column-body";
-    columnBody.id = `tasks-new`; // ID para as tarefas da nova coluna
+  // Adiciona o input ao cabeçalho
+  columnHeader.appendChild(titleInput);
 
-    // Criação de um campo de entrada para adicionar novas tarefas
-    const taskInput = document.createElement("input");
-    taskInput.type = "text";
-    taskInput.placeholder = "Digite o título da tarefa...";
-    taskInput.className = "task-input"; // Estiliza o input da tarefa
+  // Criação do corpo da coluna (onde as tarefas serão colocadas)
+  const columnBody = document.createElement("div");
+  columnBody.className = "column-body";
+  columnBody.id = `tasks-new`; // ID para as tarefas da nova coluna
 
-    // Botão para adicionar tarefa
-    const addTaskButton = document.createElement("button");
-    addTaskButton.textContent = "Adicionar Tarefa";
-    addTaskButton.className = "add-task-button";
+  // Criação de um campo de entrada para adicionar novas tarefas
+  const taskInput = document.createElement("input");
+  taskInput.type = "text";
+  taskInput.placeholder = "Digite o título da tarefa...";
+  taskInput.className = "task-input"; // Estiliza o input da tarefa
 
-    // Evento para adicionar a tarefa ao corpo da coluna
-    addTaskButton.addEventListener("click", () => {
-        const taskTitle = taskInput.value.trim();
-        if (taskTitle) {
-            addTaskToColumn(columnBody, taskTitle);
-            taskInput.value = ""; // Limpa o campo de input após adicionar
-        }
-    });
+  // Botão para adicionar tarefa
+  const addTaskButton = document.createElement("button");
+  addTaskButton.textContent = "Adicionar Tarefa";
+  addTaskButton.className = "add-task-button";
 
-    // Evento para adicionar a tarefa pressionando enter
-    taskInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            addTaskButton.click();
-        }
-    });
+  // Evento para adicionar a tarefa ao corpo da coluna
+  addTaskButton.addEventListener("click", () => {
+    const taskTitle = taskInput.value.trim();
+    if (taskTitle) {
+      addTaskToColumn(columnBody, taskTitle);
+      taskInput.value = ""; // Limpa o campo de input após adicionar
+    }
+  });
 
-    // Botão para excluir a coluna
-    const deleteColumnButton = document.createElement("button");
-    deleteColumnButton.textContent = "Excluir Coluna";
-    deleteColumnButton.className = "delete-column-button";
+  // Evento para adicionar a tarefa pressionando enter
+  taskInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      addTaskButton.click();
+    }
+  });
 
-    // Evento para excluir a coluna
-    deleteColumnButton.addEventListener("click", () => {
-        columnItem.remove(); // Remove a coluna do layout
-    });
+  // Botão para excluir a coluna
+  const deleteColumnButton = document.createElement("button");
+  deleteColumnButton.textContent = "Excluir Coluna";
+  deleteColumnButton.className = "delete-column-button";
 
-    // Adiciona o campo de entrada de tarefa e o botão ao corpo da coluna
-    columnItem.appendChild(columnHeader);
-    columnItem.appendChild(taskInput);
-    columnItem.appendChild(addTaskButton);
-    columnItem.appendChild(deleteColumnButton); // Adiciona o botão de excluir
-    columnItem.appendChild(columnBody);
+  // Evento para excluir a coluna
+  deleteColumnButton.addEventListener("click", () => {
+    columnItem.remove(); // Remove a coluna do layout
+  });
 
-    // Evento para salvar o título da coluna quando o campo de título perder o foco
-    titleInput.addEventListener("blur", () => {
-        if (titleInput.value.trim()) {
-            columnHeader.innerHTML = `<h5>${titleInput.value.trim()}</h5>`;
-        } else {
-            columnHeader.innerHTML = `<h5>Nova Coluna</h5>`; // Título padrão
-        }
-    });
+  // Adiciona o campo de entrada de tarefa e o botão ao corpo da coluna
+  columnItem.appendChild(columnHeader);
+  columnItem.appendChild(taskInput);
+  columnItem.appendChild(addTaskButton);
+  columnItem.appendChild(deleteColumnButton); // Adiciona o botão de excluir
+  columnItem.appendChild(columnBody);
 
-    return columnItem;
+  // Evento para salvar o título da coluna quando o campo de título perder o foco
+  titleInput.addEventListener("blur", () => {
+    if (titleInput.value.trim()) {
+      columnHeader.innerHTML = `<h5>${titleInput.value.trim()}</h5>`;
+    } else {
+      columnHeader.innerHTML = `<h5>Nova Coluna</h5>`; // Título padrão
+    }
+  });
+
+  return columnItem;
 }
 
 // Função para adicionar a tarefa ao corpo da coluna
 function addTaskToColumn(columnBody, taskTitle) {
-    const taskItem = document.createElement("div");
-    taskItem.className = "task-item";
-    taskItem.innerHTML = `<h6>${taskTitle}</h6>`; // Exibe o título da tarefa
+  const taskItem = document.createElement("div");
+  taskItem.className = "task-item";
+  taskItem.innerHTML = `<h6>${taskTitle}</h6>`; // Exibe o título da tarefa
 
-    columnBody.appendChild(taskItem);
+  columnBody.appendChild(taskItem);
 }
+
+async function EnviarParaApi(titleInput, boardId) {
+  try {
+    const request = await fetch(`${API_URL}/Column`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        BoardId: boardId,
+        Name: titleInput,
+        Position: 0,
+        IsActive: true,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao criar nova lista");
+    }
+
+  } catch (error) {
+    console.error('Erro ao criar nova coluna:', error);
+      alert('Erro ao criar nova coluna');
+  }
+}
+

@@ -22,6 +22,7 @@ function populateBoardsDropdown(boards) {
     boards.forEach((board) => {
         const option = document.createElement("option");
         option.value = board.Id;
+        localStorage.setItem("boardId",option.value)
         option.textContent = board.Name;
         boardsList.appendChild(option);
     });
